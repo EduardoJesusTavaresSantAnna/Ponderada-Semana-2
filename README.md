@@ -42,3 +42,13 @@ disso, o uso do MVC torna o projeto mais limpo, eficiente e preparado para cresc
 ---
 
 ## Para executar o projeto localmente:
+
+Para executar o projeto, basta baixar as pastas do arquivo conforme estão no repósitorio. Com isso execute no temrinal o comando:
+```
+node server.js
+```
+e como saida deve ser:
+```
+Servidor rodando na porta 3000
+```
+Após isso, basta acessar o link " http://localhost:3000 "
