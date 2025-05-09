@@ -27,7 +27,7 @@
 
 ### 2.1. Personas (Semana 01 - opcional)
 
-<img src="C:\Users\Inteli\Ponderada-Semana-2\assets\Manual da persona apresentação.png"> <br>
+<img src="assets\Persona.png"> <br>
 
 ### 2.2. User Stories (Semana 01 - opcional)
 
@@ -39,9 +39,7 @@
 
 ### 3.1. Modelagem do banco de dados  (Semana 3)
 
-*Posicione aqui os diagramas de modelos relacionais do seu banco de dados, apresentando todos os esquemas de tabelas e suas relações. Utilize texto para complementar suas explicações, se necessário.*
-
-*Posicione também o modelo físico com o Schema do BD (arquivo .sql)*
+<img src= "assets\bancoDeDados.png"> <br>
 
 ### 3.1.1 BD e Models (Semana 5)
 *Descreva aqui os Models implementados no sistema web*
