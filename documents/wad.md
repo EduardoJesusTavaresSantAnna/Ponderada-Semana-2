@@ -18,8 +18,15 @@
 
 ## <a name="c1"></a>1. Introdução (Semana 01)
 
-*Preencha com até 300 palavras – sem necessidade de fonte.*
-*Descreva brevemente o sistema que você irá desenvolver.*
+O sistema que será desenvolvido tem como foco principal oferecer uma plataforma prática e intuitiva para reserva de quartos. A proposta é permitir que o usuário realize suas reservas de forma fácil, rápida e segura, sem complicações, diretamente pelo site.
+
+A aplicação permite que o usuário visualize os quartos disponíveis, veja detalhes como preço, comodidades e tipo de acomodação, e escolha a opção que melhor atende às suas necessidades. Além disso, o sistema fornece feedbacks claros sobre a confirmação da reserva e dá ao usuário a possibilidade de deixar comentários e avaliações sobre os quartos escolhidos, contribuindo para a experiência de outros visitantes.
+
+Outro diferencial importante é a funcionalidade de pagamento online integrado, que permite que todo o processo seja feito em um só lugar, garantindo mais agilidade e conforto ao usuário.
+
+O projeto é construído com base no padrão de arquitetura MVC (Model-View-Controller), que organiza o sistema em três partes: o Model, que gerencia os dados das reservas e dos quartos; o View, que cuida da interface e da exibição das informações; e o Controller, que liga tudo isso, processando as ações do usuário e coordenando as respostas do sistema.
+
+Essa separação facilita a manutenção, a expansão futura do projeto e melhora a organização do código. O sistema não só atende a uma necessidade prática, como também serve como base sólida para o aprendizado e aplicação de boas práticas de desenvolvimento web.
 
 ---
 
