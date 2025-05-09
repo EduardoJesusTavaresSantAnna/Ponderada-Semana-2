@@ -27,7 +27,7 @@
 
 ### 2.1. Personas (Semana 01 - opcional)
 
-<img src="C:\Users\Inteli\Ponderada-Semana-2\assets\Manual da persona apresentação.pdf"> <br>
+<img src="C:\Users\Inteli\Ponderada-Semana-2\assets\Manual da persona apresentação.png"> <br>
 
 ### 2.2. User Stories (Semana 01 - opcional)
 
