@@ -103,7 +103,65 @@ Banco de Dados: PostgreSQL com SQL puro
 
 ### 3.6. WebAPI e endpoints (Semana 05)
 
-*Utilize um link para outra página de documentação contendo a descrição completa de cada endpoint. Ou descreva aqui cada endpoint criado para seu sistema.*  
+Web API é um conjunto de endpoints que permitem que diferentes sistemas e aplicações se comuniquem entre si, compartilhando recursos e dados. Os endpoints são localizados dentro da estrutura da aplicação e são utilizados para realizar operações como criar, ler, atualizar e deletar dados (CRUD).
+
+Tipos de solicitação
+- GET: Recupera dados (ex.: lista de quartos, detalhes de uma reserva).
+
+- POST: Cria um novo registro (ex.: novo usuário, nova reserva).
+
+- PUT: Atualiza um registro existente (ex.: atualizar dados de uma avaliação).
+
+- DELETE: Remove um registro (ex.: deletar um pagamento).
+
+| Rota            | Método | Finalidade                             | Corpo / Resposta                          |
+| --------------- | ------ | -------------------------------------- | ----------------------------------------- |
+| `/usuarios`     | GET    | Lista todos os usuários                | Resposta: Array JSON de usuários          |
+| `/usuarios/:id` | GET    | Retorna dados de um usuário específico | Resposta: JSON do usuário                 |
+| `/usuarios`     | POST   | Cria um novo usuário                   | Corpo: JSON com dados (nome, email, etc.) |
+| `/usuarios/:id` | PUT    | Atualiza dados de um usuário           | Corpo: JSON atualizado                    |
+| `/usuarios/:id` | DELETE | Deleta um usuário                      | Resposta: Mensagem de sucesso/erro        |
+
+---
+
+| Rota           | Método | Finalidade                       | Corpo / Resposta                             |
+| -------------- | ------ | -------------------------------- | -------------------------------------------- |
+| `/quartos`     | GET    | Lista todos os quartos           | Resposta: Array JSON de quartos              |
+| `/quartos/:id` | GET    | Detalhes de um quarto específico | Resposta: JSON do quarto                     |
+| `/quartos`     | POST   | Cadastra um novo quarto          | Corpo: JSON com tipo, preço, disponibilidade |
+| `/quartos/:id` | PUT    | Atualiza dados de um quarto      | Corpo: JSON atualizado                       |
+| `/quartos/:id` | DELETE | Remove um quarto do sistema      | Resposta: Mensagem de sucesso/erro           |
+
+---
+
+| Rota            | Método | Finalidade                         | Corpo / Resposta                               |
+| --------------- | ------ | ---------------------------------- | ---------------------------------------------- |
+| `/reservas`     | GET    | Lista todas as reservas            | Resposta: Array JSON de reservas               |
+| `/reservas/:id` | GET    | Detalhes de uma reserva específica | Resposta: JSON da reserva                      |
+| `/reservas`     | POST   | Cria uma nova reserva              | Corpo: JSON com id\_usuario, id\_quarto, datas |
+| `/reservas/:id` | PUT    | Atualiza dados de uma reserva      | Corpo: JSON atualizado                         |
+| `/reservas/:id` | DELETE | Remove uma reserva do sistema      | Resposta: Mensagem de sucesso/erro             |
+
+---
+
+| Rota   | Método | Finalidade                              | Corpo / Resposta                               |
+| ------ | ------ | --------------------------------------- | ---------------------------------------------- |
+| `/`    | GET    | Lista todos os pagamentos (⚠️ conflito) | Resposta: Array JSON de pagamentos             |
+| `/:id` | GET    | Detalhes de um pagamento específico     | Resposta: JSON do pagamento                    |
+| `/`    | POST   | Cria um novo pagamento                  | Corpo: JSON com dados (reserva, valor, método) |
+| `/:id` | PUT    | Atualiza um pagamento                   | Corpo: JSON atualizado                         |
+| `/:id` | DELETE | Remove um pagamento                     | Resposta: Mensagem de sucesso/erro             |
+
+---
+
+| Rota              | Método | Finalidade                           | Corpo / Resposta                              |
+| ----------------- | ------ | ------------------------------------ | --------------------------------------------- |
+| `/avaliacoes`     | GET    | Lista todas as avaliações            | Resposta: Array JSON de avaliações            |
+| `/avaliacoes/:id` | GET    | Detalhes de uma avaliação específica | Resposta: JSON da avaliação                   |
+| `/avaliacoes`     | POST   | Cria uma nova avaliação              | Corpo: JSON com id\_usuario, nota, comentário |
+| `/avaliacoes/:id` | PUT    | Atualiza dados de uma avaliação      | Corpo: JSON atualizado                        |
+| `/avaliacoes/:id` | DELETE | Remove uma avaliação                 | Resposta: Mensagem de sucesso/erro            |
+
 
 ### 3.7 Interface e Navegação (Semana 07)
 
