@@ -34,7 +34,7 @@ Essa separação facilita a manutenção, a expansão futura do projeto e melhor
 
 ### 2.1. Personas (Semana 01 - opcional)
 
-<img src="assets\Persona.png"> <br>
+<img src="../assets/Persona.png"> <br>
 
 ### 2.2. User Stories (Semana 01 - opcional)
 
@@ -46,69 +46,40 @@ Essa separação facilita a manutenção, a expansão futura do projeto e melhor
 
 ### 3.1. Modelagem do banco de dados  (Semana 3)
 
-<img src= "assets\bancoDeDados.png"> <br>
-
----
+<img src= "../assets/bancoDeDados.png"> <br>
 
 ### 3.1.1 BD e Models (Semana 5)
-
-Nesta etapa do projeto, foram implementados os *models* responsáveis pela comunicação entre a aplicação Node.js e o banco de dados PostgreSQL. Cada model representa uma entidade da base de dados e contém funções assíncronas que executam operações CRUD (Create, Read, Update e Delete), utilizando comandos SQL puros. Abaixo estão descritos os models desenvolvidos:
-
-#### **Usuários (`usuarioModel`)**
-
-Gerencia os dados dos usuários do sistema. Permite:
-
-* Listar todos os usuários cadastrados;
-* Buscar um usuário específico por ID;
-* Criar um novo usuário com nome, e-mail e senha;
-* Atualizar parcialmente os dados de um usuário;
-* Deletar um usuário pelo ID.
-
-#### **Quartos (`quartosModel`)**
-
-Controla os dados relacionados aos quartos disponíveis para reserva. Permite:
-
-* Listar todos os quartos;
-* Buscar um quarto por ID;
-* Criar um novo quarto com informações como nome, localização, capacidade, comodidades, descrição e preço;
-* Atualizar os dados de um quarto;
-* Excluir um quarto.
-
-#### **Reservas (`reservasModel`)**
-
-Lida com o controle de reservas feitas pelos usuários. Suporta:
-
-* Listagem de todas as reservas com nome do usuário e do quarto relacionados;
-* Consulta de uma reserva por ID;
-* Criação de nova reserva, informando o usuário, quarto, datas, status e preço total;
-* Atualização dos dados da reserva;
-* Remoção de uma reserva existente.
-
-#### **Pagamentos (`pagamentosModel`)**
-
-Gerencia os pagamentos associados às reservas. Possui:
-
-* Listagem de todos os pagamentos, incluindo o nome do usuário e a reserva associada;
-* Busca por ID;
-* Criação de um novo pagamento, automaticamente calculando o valor com base no preço total da reserva;
-* Atualização de um pagamento, recalculando o valor;
-* Exclusão de um pagamento.
-
-#### **Avaliações (`avaliacoesModel`)**
-
-Registra as avaliações que os usuários deixam após as reservas. Funcionalidades:
-
-* Listagem de avaliações mais recentes primeiro;
-* Busca por avaliação específica via ID;
-* Criação de nova avaliação com nota e comentário vinculados a uma reserva e usuário;
-* Atualização de campos variados da avaliação;
-* Remoção da avaliação.
-
-Todos os models utilizam o módulo `pool` para executar as queries no PostgreSQL, garantindo conexão com o banco e retornando os dados em formato `rows`. A separação em arquivos distintos mantém o código modular e facilita a manutenção e evolução do sistema.
+*Descreva aqui os Models implementados no sistema web*
 
 ### 3.2. Arquitetura (Semana 5)
 
-*Posicione aqui o diagrama de arquitetura da sua solução de aplicação web. Atualize sempre que necessário.*
+Minha aplicação web segue a arquitetura MVC (Model-View-Controller), estruturada para separar responsabilidades e facilitar a manutenção e escalabilidade. Abaixo está o diagrama da arquitetura, com o fluxo de dados entre as camadas Model, Controller e View.
+
+🔁 Explicação do Fluxo de Dados
+Usuário/Cliente (Frontend ou API client) faz uma requisição HTTP (ex: GET /quartos).
+
+Controller recebe a requisição, valida os dados e decide a ação.
+
+O Controller chama a função apropriada do Model, passando os parâmetros necessários.
+
+O Model executa comandos SQL puros diretamente no PostgreSQL e retorna os resultados.
+
+O Controller recebe os dados do Model, aplica qualquer lógica adicional e prepara a resposta.
+
+(Opcional) A View formata os dados caso haja uma interface. Neste sistema, a View pode ser entendida como a estrutura da resposta JSON.
+
+A resposta é enviada de volta ao usuário/cliente.
+
+🧱 Componentes da Arquitetura
+Model: usuariosModel, quartosModel, reservasModel, avaliacoesModel, pagamentosModel
+
+Controller: usuariosController, quartosController, reservasController, etc.
+
+View: Como a aplicação é uma API REST, a view se refere à estrutura das respostas JSON enviadas ao cliente.
+
+Banco de Dados: PostgreSQL com SQL puro
+
+<img src= "../assets/DiagramaBD.png"> <br>
 
 **Instruções para criação do diagrama de arquitetura**  
 - **Model**: A camada que lida com a lógica de negócios e interage com o banco de dados.
