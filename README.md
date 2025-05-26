@@ -42,13 +42,132 @@ disso, o uso do MVC torna o projeto mais limpo, eficiente e preparado para cresc
 ---
 
 ## Para executar o projeto localmente:
+📦 Requisitos
+Para rodar o sistema, você precisa ter instalado:
 
-Para executar o projeto, basta baixar as pastas do arquivo conforme estão no repósitorio. Com isso execute no temrinal o comando:
+Node.js (versão 16 ou superior)
+
+PostgreSQL
+
+Um gerenciador de pacotes (como npm ou yarn)
+
+⚙️ Passo a Passo de Instalação
+1. Clonar ou extrair o projeto
+Se estiver compactado, basta extrair o ZIP. Se estiver em um repositório Git:
+e como saida deve ser:
+```
+git clone <url-do-repo>
+cd Sistema-de-Reservas
+```
+2. Instalar as dependências
+No diretório raiz do projeto:
+```
+npm install
+```
+3. Configurar o banco de dados
+Crie um banco no PostgreSQL (ex: sistema_reservas) e configure as tabelas de acordo com seus models.
+- Configure o arquivo .env com sua string de conexão. Exemplo:
+```
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=sua_senha
+DB_DATABASE=sistema_reservas
+```
+
+4. Criar a estrutura do banco de dados
+Use a seguinte base (exemplo SQL):
+```sql
+CREATE TABLE usuarios (
+  id_usuario SERIAL PRIMARY KEY,
+  nome VARCHAR(100),
+  email VARCHAR(100),
+  senha VARCHAR(100)
+);
+
+CREATE TABLE quartos (
+  id_quartos SERIAL PRIMARY KEY,
+  nome VARCHAR(100),
+  localizacao TEXT,
+  capacidade INTEGER,
+  comodidades TEXT,
+  descricao TEXT,
+  preco DECIMAL
+);
+
+CREATE TABLE reservas (
+  id_reserva SERIAL PRIMARY KEY,
+  id_usuario INTEGER REFERENCES usuarios(id_usuario),
+  id_quarto INTEGER REFERENCES quartos(id_quartos),
+  data_inicio DATE,
+  data_fim DATE,
+  status VARCHAR(50),
+  preco_total DECIMAL
+);
+
+CREATE TABLE pagamentos (
+  id_pagamento SERIAL PRIMARY KEY,
+  id_reserva INTEGER REFERENCES reservas(id_reserva),
+  id_usuario INTEGER REFERENCES usuarios(id_usuario),
+  data_pagamento DATE,
+  valor DECIMAL,
+  metodo VARCHAR(50),
+  status VARCHAR(50)
+);
+
+CREATE TABLE avaliacoes (
+  id_avaliacao SERIAL PRIMARY KEY,
+  id_reserva INTEGER REFERENCES reservas(id_reserva),
+  id_usuario INTEGER REFERENCES usuarios(id_usuario),
+  nota INTEGER,
+  comentario TEXT,
+  data_criacao TIMESTAMP DEFAULT NOW()
+);
+```
+
+5. Rodar o servidor
+Se o ponto de entrada for app.js:
 ```
 node server.js
 ```
-e como saida deve ser:
+Ou, se estiver usando nodemon para recarregamento automático:
+```
+npx nodemon server.js
+```
+
+6. rode no servidor local
 ```
 Servidor rodando na porta 3000
 ```
 Após isso, basta acessar o link " http://localhost:3000 "
+
+
+🌐 Endpoints (exemplos)
+Os endpoints dependem do conteúdo das rotas, mas presumindo RESTful:
+
+- GET /usuarios
+
+- POST /usuarios
+
+- GET /reservas
+
+- POST /reservas
+
+- GET /quartos
+
+- POST /avaliacoes
+
+- POST /pagamentos
+
+(Se quiser, posso gerar todos os arquivos de rotas para você)
+
+✅ Funcionalidades
+- Cadastro e autenticação de usuários
+
+- Gerenciamento de quartos e suas informações
+
+- Criação e visualização de reservas
+
+- Pagamentos atrelados a reservas
+
+- Avaliações feitas por usuários após as reservas
