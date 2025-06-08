@@ -1,0 +1,59 @@
+<%- include('../partials/header', {title: 'Lista de Quartos - Sistema de Hotel'}) %>
+
+<section class="page-header">
+    <h2>Lista de Quartos</h2>
+    <div class="actions">
+        <a href="/quartos/formulario" class="btn btn-primary">Novo Quarto</a>
+    </div>
+</section>
+
+<section class="room-list">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Localização</th>
+                <th>Capacidade</th>
+                <th>Preço/Noite</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (quartos && quartos.length > 0) { %>
+                <% quartos.forEach(quarto => { %>
+                    <tr>
+                        <td><%= quarto.id_quartos %></td>
+                        <td><%= quarto.nome %></td>
+                        <td><%= quarto.localizacao %></td>
+                        <td><%= quarto.capacidade %></td>
+                        <td>R$ <%= quarto.preco.toFixed(2) %></td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/quartos/formulario/<%= quarto.id_quartos %>" class="btn btn-edit">Editar</a>
+                                <button class="btn btn-delete" data-id="<%= quarto.id_quartos %>">Excluir</button>
+                            </div>
+                        </td>
+                    </tr>
+                <% }); %>
+            <% } else { %>
+                <tr>
+                    <td colspan="6" class="no-data">Nenhum quarto cadastrado.</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</section>
+
+<div id="delete-modal" class="modal">
+    <div class="modal-content">
+        <h3>Confirmação</h3>
+        <p>Tem certeza que deseja excluir este quarto?</p>
+        <div class="modal-actions">
+            <button id="confirm-delete" class="btn btn-danger">Sim, excluir</button>
+            <button id="cancel-delete" class="btn">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

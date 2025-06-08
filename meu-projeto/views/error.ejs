@@ -1,0 +1,15 @@
+<%- include('partials/header', {title: 'Erro - Sistema de Hotel'}) %>
+
+<section class="error-page">
+    <div class="error-container">
+        <h2>Oops! Ocorreu um erro</h2>
+        <% if (error && error.message) { %>
+            <p class="error-message"><%= error.message %></p>
+        <% } else { %>
+            <p class="error-message">Algo deu errado. Por favor, tente novamente mais tarde.</p>
+        <% } %>
+        <a href="/" class="btn btn-primary">Voltar para a página inicial</a>
+    </div>
+</section>
+
+<%- include('partials/footer') %>

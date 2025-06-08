@@ -7,44 +7,74 @@ const reservasController = require('../controllers/reservasController'); // Rese
 const pagamentosController = require('../controllers/pagamentosController'); //Pagamentos
 const avaliacoesController = require('../controllers/avaliacoesController'); //Avaliação
 
-// Rota raiz
-router.get('/', (req, res) => {
-  res.send('API rodando - rota raiz /api');
+// Rota raiz - Página inicial
+router.get('/', async (req, res) => {
+  try {
+    const quartos = await quartosControllers.listarParaView(req, res);
+    res.render('index', { quartos, title: 'Hotel Sistema - Home' });
+  } catch (error) {
+    res.render('error', { error, title: 'Erro - Sistema de Hotel' });
+  }
 });
 
+// Rotas de visualização para Quartos
+router.get('/quartos/lista', async (req, res) => {
+  try {
+    const quartos = await quartosControllers.listarParaView(req, res);
+    res.render('quartos/lista', { quartos, title: 'Lista de Quartos' });
+  } catch (error) {
+    res.render('error', { error, title: 'Erro - Sistema de Hotel' });
+  }
+});
+
+router.get('/quartos/formulario', (req, res) => {
+  res.render('quartos/formulario', { quarto: {}, title: 'Novo Quarto' });
+});
+
+router.get('/quartos/formulario/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const quarto = await quartosControllers.buscarPorIdParaView(req, res);
+    res.render('quartos/formulario', { quarto, title: 'Editar Quarto' });
+  } catch (error) {
+    res.render('error', { error, title: 'Erro - Sistema de Hotel' });
+  }
+});
+
+// API Routes - Rotas para consumo via Fetch API
 // Rotas de usuários
-router.get('/usuarios', usuariosController.listar);
-router.get('/usuarios/:id', usuariosController.buscarPorId);
-router.post('/usuarios', usuariosController.criar);
-router.put('/usuarios/:id', usuariosController.atualizar);
-router.delete('/usuarios/:id', usuariosController.deletar);
+router.get('/api/usuarios', usuariosController.listar);
+router.get('/api/usuarios/:id', usuariosController.buscarPorId);
+router.post('/api/usuarios', usuariosController.criar);
+router.put('/api/usuarios/:id', usuariosController.atualizar);
+router.delete('/api/usuarios/:id', usuariosController.deletar);
 
 // Rotas de quartos
-router.get('/quartos', quartosControllers.listar);
-router.get('/quartos/:id', quartosControllers.buscarPorId);
-router.post('/quartos', quartosControllers.criar);
-router.put('/quartos/:id', quartosControllers.atualizar);
-router.delete('/quartos/:id', quartosControllers.deletar);
+router.get('/api/quartos', quartosControllers.listar);
+router.get('/api/quartos/:id', quartosControllers.buscarPorId);
+router.post('/api/quartos', quartosControllers.criar);
+router.put('/api/quartos/:id', quartosControllers.atualizar);
+router.delete('/api/quartos/:id', quartosControllers.deletar);
 
 // Rotas reservas
-router.get('/reservas', reservasController.listar);
-router.get('/reservas/:id', reservasController.buscarPorId);
-router.post('/reservas', reservasController.criar);
-router.put('/reservas/:id', reservasController.atualizar);
-router.delete('/reservas/:id', reservasController.deletar);
+router.get('/api/reservas', reservasController.listar);
+router.get('/api/reservas/:id', reservasController.buscarPorId);
+router.post('/api/reservas', reservasController.criar);
+router.put('/api/reservas/:id', reservasController.atualizar);
+router.delete('/api/reservas/:id', reservasController.deletar);
 
 // Rotas de Pagamentos
-router.get('/', pagamentosController.listar);
-router.get('/:id', pagamentosController.buscarPorId);
-router.post('/', pagamentosController.criar);
-router.put('/:id', pagamentosController.atualizar);
-router.delete('/:id', pagamentosController.deletar);
+router.get('/api/pagamentos', pagamentosController.listar);
+router.get('/api/pagamentos/:id', pagamentosController.buscarPorId);
+router.post('/api/pagamentos', pagamentosController.criar);
+router.put('/api/pagamentos/:id', pagamentosController.atualizar);
+router.delete('/api/pagamentos/:id', pagamentosController.deletar);
 
 // Rotas de Avaliação
-router.get('/avaliacoes', avaliacoesController.listar);
-router.get('/avaliacoes/:id', avaliacoesController.buscarPorId);
-router.post('/avaliacoes', avaliacoesController.criar);
-router.put('/avaliacoes/:id', avaliacoesController.atualizar);
-router.delete('/avaliacoes/:id', avaliacoesController.deletar);
+router.get('/api/avaliacoes', avaliacoesController.listar);
+router.get('/api/avaliacoes/:id', avaliacoesController.buscarPorId);
+router.post('/api/avaliacoes', avaliacoesController.criar);
+router.put('/api/avaliacoes/:id', avaliacoesController.atualizar);
+router.delete('/api/avaliacoes/:id', avaliacoesController.deletar);
 
 module.exports = router;

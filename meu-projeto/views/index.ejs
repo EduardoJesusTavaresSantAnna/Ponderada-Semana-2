@@ -1,0 +1,31 @@
+<%- include('partials/header', {title: 'Sistema de Hotel - Home'}) %>
+
+<section class="hero">
+    <h2>Bem-vindo ao Sistema de Gestão Hoteleira</h2>
+    <p>Gerencie quartos, reservas e mais com nossa plataforma simples e eficiente.</p>
+</section>
+
+<section class="featured-rooms">
+    <h2>Quartos Disponíveis</h2>
+    <div class="room-grid">
+        <% if (quartos && quartos.length > 0) { %>
+            <% quartos.forEach(quarto => { %>
+                <div class="room-card">
+                    <h3><%= quarto.nome %></h3>
+                    <p class="location"><%= quarto.localizacao %></p>
+                    <p class="capacity">Capacidade: <%= quarto.capacidade %> pessoas</p>
+                    <p class="amenities">Comodidades: <%= quarto.comodidades %></p>
+                    <p class="price">R$ <%= quarto.preco.toFixed(2) %> / noite</p>
+                    <div class="room-actions">
+                        <a href="/quartos/formulario/<%= quarto.id_quartos %>" class="btn btn-edit">Editar</a>
+                        <button class="btn btn-delete" data-id="<%= quarto.id_quartos %>">Excluir</button>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p class="no-results">Nenhum quarto cadastrado. <a href="/quartos/formulario">Cadastrar um quarto</a>.</p>
+        <% } %>
+    </div>
+</section>
+
+<%- include('partials/footer') %>

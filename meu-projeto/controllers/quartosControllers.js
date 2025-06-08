@@ -1,5 +1,6 @@
 const quartosModel = require('../models/quartosModel');
 
+// Métodos para API
 exports.listar = async (req, res) => {
   try {
     const quartos = await quartosModel.listar();
@@ -9,6 +10,34 @@ exports.listar = async (req, res) => {
   }
 };
 
+// Métodos auxiliares para as views
+exports.listarParaView = async (req, res) => {
+  try {
+    const quartos = await quartosModel.listar();
+    // Garantir que o preço seja tratado como número
+    const quartosFormatados = quartos.map(quarto => ({
+      ...quarto,
+      preco: Number(quarto.preco)
+    }));
+    return quartosFormatados || [];
+  } catch (error) {
+    console.error('Erro ao listar quartos para view:', error);
+    throw error;
+  }
+};
+
+exports.buscarPorIdParaView = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const quarto = await quartosModel.buscarPorId(id);
+    return quarto || {};
+  } catch (error) {
+    console.error(`Erro ao buscar quarto ID ${id} para view:`, error);
+    throw error;
+  }
+};
+
+// Métodos para API existentes
 exports.buscarPorId = async (req, res) => {
   const id = req.params.id;
   try {

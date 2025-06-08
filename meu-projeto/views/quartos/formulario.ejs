@@ -1,0 +1,103 @@
+<%- include('../partials/header', {title: quarto && quarto.id_quartos ? 'Editar Quarto' : 'Novo Quarto'}) %>
+
+<section class="page-header">
+    <h2><%= quarto && quarto.id_quartos ? 'Editar Quarto' : 'Novo Quarto' %></h2>
+    <div class="actions">
+        <a href="/quartos/lista" class="btn btn-secondary">Voltar para Lista</a>
+    </div>
+</section>
+
+<section class="form-container">
+    <form id="quarto-form" class="standard-form">
+        <% if (quarto && quarto.id_quartos) { %>
+            <input type="hidden" id="id_quartos" value="<%= quarto.id_quartos %>">
+        <% } %>
+
+        <div class="form-group">
+            <label for="nome">Nome do Quarto</label>
+            <input type="text" id="nome" name="nome" required 
+                value="<%= quarto && quarto.nome ? quarto.nome : '' %>">
+        </div>
+
+        <div class="form-group">
+            <label for="localizacao">Localização</label>
+            <input type="text" id="localizacao" name="localizacao" required 
+                value="<%= quarto && quarto.localizacao ? quarto.localizacao : '' %>">
+        </div>
+
+        <div class="form-group">
+            <label for="capacidade">Capacidade (pessoas)</label>
+            <input type="number" id="capacidade" name="capacidade" min="1" required 
+                value="<%= quarto && quarto.capacidade ? quarto.capacidade : '1' %>">
+        </div>
+
+        <div class="form-group">
+            <label for="comodidades">Comodidades</label>
+            <textarea id="comodidades" name="comodidades" rows="3"><%= quarto && quarto.comodidades ? quarto.comodidades : '' %></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" name="descricao" rows="5"><%= quarto && quarto.descricao ? quarto.descricao : '' %></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="preco">Preço por Noite (R$)</label>
+            <input type="number" id="preco" name="preco" step="0.01" min="0" required 
+                value="<%= quarto && quarto.preco ? quarto.preco : '0.00' %>">
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a href="/quartos/lista" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('quarto-form');
+        const idQuarto = document.getElementById('id_quartos')?.value;
+        
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Coleta os dados do formulário
+            const formData = {
+                nome: document.getElementById('nome').value,
+                localizacao: document.getElementById('localizacao').value,
+                capacidade: parseInt(document.getElementById('capacidade').value),
+                comodidades: document.getElementById('comodidades').value,
+                descricao: document.getElementById('descricao').value,
+                preco: parseFloat(document.getElementById('preco').value)
+            };
+            
+            // URL e método dependem se é uma edição ou uma criação
+            const url = idQuarto ? `/api/quartos/${idQuarto}` : '/api/quartos';
+            const method = idQuarto ? 'PUT' : 'POST';
+            
+            try {
+                const response = await fetch(url, {
+                    method,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    // Sucesso - redirecionar para a lista
+                    window.location.href = '/quartos/lista';
+                } else {
+                    // Erro - mostrar mensagem
+                    const error = await response.json();
+                    alert(`Erro ao salvar: ${error.message || 'Tente novamente mais tarde'}`);
+                }
+            } catch (error) {
+                alert(`Erro ao comunicar com o servidor: ${error.message}`);
+            }
+        });
+    });
+</script>
+
+<%- include('../partials/footer') %>
