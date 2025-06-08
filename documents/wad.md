@@ -165,7 +165,59 @@ Tipos de solicitação
 
 ### 3.7 Interface e Navegação (Semana 07)
 
-*Descreva e ilustre aqui o desenvolvimento do frontend do sistema web, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
+A interface do Sistema de Gestão Hoteleira foi desenvolvida com foco em usabilidade e experiência do usuário, utilizando HTML, EJS, CSS e JavaScript. O frontend permite que os usuários interajam com o sistema de maneira intuitiva, visualizando, criando, editando e removendo informações sobre quartos de hotel.
+
+#### 3.7.1 Estrutura da Interface
+
+A interface está estruturada em diferentes páginas, cada uma com uma função específica:
+
+1. **Página Inicial**: Apresenta uma visão geral do sistema e exibe os quartos disponíveis em formato de cards.
+2. **Lista de Quartos**: Mostra todos os quartos cadastrados em formato de tabela com opções de edição e exclusão.
+3. **Formulário de Quartos**: Permite adicionar novos quartos ou editar quartos existentes.
+4. **Páginas de Erro**: Exibem mensagens informativas quando ocorre algum problema.
+
+#### 3.7.2 Elementos da Interface
+
+O sistema inclui diversos elementos de interface para facilitar a navegação e interação:
+
+- **Navegação Superior**: Menu de navegação presente em todas as páginas
+- **Cards de Quartos**: Exibição visual dos quartos disponíveis na página inicial
+- **Tabelas de Dados**: Visualização organizada dos dados nas páginas de listagem
+- **Formulários**: Para inserção e edição de dados
+- **Botões de Ação**: Para confirmação de ações como salvar, editar e excluir
+- **Feedback Visual**: Notificações para informar o resultado das ações
+
+#### 3.7.3 Capturas de Tela
+
+**Página Inicial**
+![Página Inicial](../assets/screenshot-home.png)
+*Observação: Substitua com a imagem real da sua página inicial*
+
+**Lista de Quartos**
+![Lista de Quartos](../assets/screenshot-lista.png)
+*Observação: Substitua com a imagem real da sua lista de quartos*
+
+**Formulário de Criação/Edição de Quarto**
+![Formulário de Quarto](../assets/screenshot-formulario.png)
+*Observação: Substitua com a imagem real do seu formulário*
+
+#### 3.7.4 Recursos de Interface Implementados
+
+- **Responsividade**: Interface adaptativa para diferentes tamanhos de tela
+- **Modo Offline**: Funcionamento mesmo sem conexão com o banco de dados
+- **Validação de Formulários**: Verificação de campos obrigatórios e formatos
+- **Interatividade**: Elementos interativos como botões e links com feedback visual
+- **Tratamento de Erros**: Exibição de mensagens informativas em caso de erro
+
+#### 3.7.5 Integração Frontend-Backend
+
+O frontend se comunica com o backend através da Fetch API, realizando chamadas para os endpoints definidos. A aplicação utiliza o padrão MVC, onde:
+
+- As **Views** (EJS) são responsáveis pela apresentação visual
+- Os **Controllers** processam as requisições e preparam os dados
+- Os **Models** interagem com o banco de dados
+
+Esta arquitetura permite uma separação clara de responsabilidades e facilita a manutenção do código.
 
 ---
 
