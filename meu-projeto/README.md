@@ -2,8 +2,6 @@
 
 Sistema completo de gestão hoteleira desenvolvido como projeto acadêmico utilizando arquitetura MVC. A aplicação permite gerenciar quartos, reservas, usuários, pagamentos e avaliações de forma intuitiva e eficiente.
 
-![Sistema de Hotel](../assets/screenshot-home.png)
-
 ## 🚀 Funcionalidades Principais
 
 ### ✨ Gestão de Quartos
@@ -55,8 +53,8 @@ Antes de executar o projeto, certifique-se de ter instalado:
 
 ### 1️⃣ Clone o repositório
 ```bash
-git clone https://github.com/seu-usuario/sistema-gestao-hoteleira.git
-cd sistema-gestao-hoteleira/meu-projeto
+git clone https://github.com/EduardoJesusTavaresSantAnna/Ponderada-Semana-2.git
+cd meu-projeto
 ```
 
 ### 2️⃣ Instale as dependências
@@ -94,27 +92,6 @@ npm start
 
 ### 6️⃣ Acesse a aplicação
 Abra seu navegador e acesse: `http://localhost:3000`
-
-## 📱 Demonstração Visual
-
-### Página Inicial
-![Página Inicial](../assets/screenshot-home.png)
-*Interface principal com listagem de quartos em formato de cards*
-
-### Lista de Quartos
-![Lista de Quartos](../assets/screenshot-lista.png)
-*Visualização em tabela com opções de edição e exclusão*
-
-### Formulário de Quartos
-![Formulário](../assets/screenshot-formulario.png)
-*Interface para cadastro e edição de quartos com validação*
-
-## 🎥 Vídeo Demonstrativo
-
-🔗 **[Assistir Demonstração Completa](link-do-video-aqui)**
-- Apresentação do sistema funcionando
-- Demonstração das principais funcionalidades
-- Explicação da arquitetura técnica
 
 ## 🏗 Estrutura do Projeto
 
@@ -185,9 +162,8 @@ Este projeto é desenvolvido para fins acadêmicos como parte do curso de Engenh
 
 ## 👨‍💻 Autor
 
-**[Seu Nome]** - Estudante de Engenharia de Computação
-- GitHub: [@seu-usuario](https://github.com/seu-usuario)
-- LinkedIn: [Seu Perfil](https://linkedin.com/in/seu-perfil)
+**Eduardo Jesus Tavres Sant'Anna** - Estudante de Engenharia de Computação
+- GitHub: [@Eduardo Jesus Tavares Sant'Anna](https://github.com/EduardoJesusTavaresSantAnna)
 
 ## 🙏 Agradecimentos
 
