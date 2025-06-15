@@ -11,7 +11,34 @@
 1. [Introdução](#c1)  
 2. [Visão Geral da Aplicação Web](#c2)  
 3. [Projeto Técnico da Aplicação Web](#c3)  
-4. [Desenvolvimento da Aplicação Web](#c4)  
+4. [Desenv## <a name="c6"></a>6. Referências
+
+### Documentação Técnica
+- **Node.js Documentation** - [https://nodejs.org/docs/](https://nodejs.org/docs/)
+- **Express.js Guide** - [https://expressjs.com/](https://expressjs.com/)
+- **PostgreSQL Documentation** - [https://www.postgresql.org/docs/](https://www.postgresql.org/docs/)
+- **EJS Documentation** - [https://ejs.co/](https://ejs.co/)
+
+### Arquitetura e Padrões
+- **MVC Architecture Pattern** - Martin Fowler
+- **RESTful API Design** - [https://restfulapi.net/](https://restfulapi.net/)
+- **HTTP Status Codes** - [https://httpstatuses.com/](https://httpstatuses.com/)
+
+### Frontend e CSS
+- **MDN Web Docs - CSS** - [https://developer.mozilla.org/en-US/docs/Web/CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- **CSS Grid Guide** - [https://css-tricks.com/snippets/css/complete-guide-grid/](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- **Flexbox Guide** - [https://css-tricks.com/snippets/css/a-guide-to-flexbox/](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+### JavaScript e APIs
+- **Fetch API Documentation** - [https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+- **JavaScript ES6+ Features** - [https://es6-features.org/](https://es6-features.org/)
+
+### Ferramentas de Desenvolvimento
+- **npm Documentation** - [https://docs.npmjs.com/](https://docs.npmjs.com/)
+- **Git Documentation** - [https://git-scm.com/doc](https://git-scm.com/doc)
+
+---
+---nto da Aplicação Web](#c4)  
 5. [Referências](#c5)  
 
 <br>
@@ -225,13 +252,165 @@ Esta arquitetura permite uma separação clara de responsabilidades e facilita a
 
 ### 4.1 Demonstração do Sistema Web (Semana 8)
 
-*VIDEO: Insira o link do vídeo demonstrativo nesta seção*
-*Descreva e ilustre aqui o desenvolvimento do sistema web completo, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
+**🎥 VÍDEO DEMONSTRATIVO:** [Link para o vídeo](link-do-video-aqui)
 
-### 4.2 Conclusões e Trabalhos Futuros (Semana 8)
+O sistema de gestão hoteleira foi desenvolvido seguindo a arquitetura MVC e implementa todas as funcionalidades propostas. A aplicação permite:
 
-*Indique pontos fortes e pontos a melhorar de maneira geral.*
-*Relacione também quaisquer outras ideias que você tenha para melhorias futuras.*
+#### Funcionalidades Implementadas:
+- **CRUD Completo de Quartos:** Criação, leitura, atualização e exclusão de quartos
+- **Interface Responsiva:** Design adaptativo para diferentes dispositivos
+- **Validação de Dados:** Tanto no frontend quanto no backend
+- **Tratamento de Erros:** Páginas e mensagens de erro amigáveis
+- **Navegação Intuitiva:** Menu de navegação consistente em todas as páginas
+
+#### Capturas de Tela do Sistema:
+
+**Página Inicial**
+![Página Inicial](../assets/screenshot-home.png)
+*Interface principal com apresentação do sistema e listagem de quartos em formato de cards*
+
+**Lista de Quartos** 
+![Lista de Quartos](../assets/screenshot-lista.png)
+*Visualização tabular completa com opções de edição e exclusão*
+
+**Formulário de Quartos**
+![Formulário](../assets/screenshot-formulario.png)
+*Interface para cadastro e edição com validação em tempo real*
+
+### 4.2 Decisões Técnicas e Arquitetura
+
+#### Framework e Tecnologias Escolhidas:
+
+**Backend:**
+- **Node.js + Express.js:** Escolhidos pela facilidade de desenvolvimento, grande comunidade e performance adequada para aplicações web
+- **PostgreSQL:** Banco relacional robusto com suporte completo a ACID e consultas complexas
+- **EJS:** Template engine que permite misturar HTML com JavaScript de forma simples
+
+**Frontend:**
+- **CSS Puro:** Optei por CSS vanilla para ter controle total sobre o design e evitar dependências externas
+- **Fetch API:** Para comunicação assíncrona com o backend, oferecendo uma sintaxe limpa e moderna
+- **JavaScript ES6+:** Utilizando features modernas como async/await e destructuring
+
+#### Arquitetura MVC:
+- **Models:** Responsáveis pela lógica de acesso aos dados e interação com PostgreSQL
+- **Views:** Templates EJS que renderizam HTML dinâmico
+- **Controllers:** Processam requisições, aplicam regras de negócio e coordenam models e views
+
+### 4.3 Principais Aprendizados e Desafios Superados
+
+#### 🎯 Aprendizados Significativos:
+
+1. **Separação de Responsabilidades:**
+   - Aprendi a importância de manter uma clara separação entre lógica de apresentação, negócio e dados
+   - A arquitetura MVC facilitou muito a organização e manutenção do código
+
+2. **Comunicação Frontend-Backend:**
+   - Domínio da Fetch API para requisições assíncronas
+   - Entendimento de quando usar GET, POST, PUT e DELETE
+   - Tratamento adequado de respostas de API e erros
+
+3. **Gerenciamento de Estado:**
+   - Como sincronizar dados entre frontend e backend
+   - Atualização da interface após operações CRUD
+
+4. **Design Responsivo:**
+   - Uso efetivo de CSS Grid e Flexbox
+   - Media queries para adaptação a diferentes dispositivos
+
+#### 🛠 Desafios Principais e Soluções:
+
+**1. Integração EJS com Dados Dinâmicos**
+- **Problema:** Erro "title is not defined" ao renderizar templates
+- **Solução:** Sempre passar todas as variáveis necessárias para os templates e criar fallbacks adequados
+- **Aprendizado:** Importância de documentar quais variáveis cada template espera receber
+
+**2. Organização de Rotas**
+- **Problema:** Conflito entre rotas de API e rotas de renderização
+- **Solução:** Separar claramente rotas `/api/*` para JSON e rotas normais para renderização HTML
+- **Aprendizado:** Planejamento de estrutura de rotas é fundamental
+
+**3. Validação e Tratamento de Erros**
+- **Problema:** Aplicação quebrava com dados inválidos ou erros de banco
+- **Solução:** Implementar try-catch em todos os controllers e criar páginas de erro amigáveis
+- **Aprendizado:** Nunca confiar apenas na validação frontend
+
+**4. Responsividade da Interface**
+- **Problema:** Interface não funcionava bem em dispositivos móveis
+- **Solução:** Usar mobile-first approach e testar em diferentes resoluções
+- **Aprendizado:** Design responsivo deve ser pensado desde o início
+
+### 4.4 Pontos Fortes do Projeto
+
+✅ **Arquitetura Bem Estruturada:** MVC implementado corretamente com clara separação de responsabilidades
+
+✅ **Interface Intuitiva:** Design limpo e navegação fácil, mesmo para usuários não técnicos
+
+✅ **Código Limpo:** Comentários adequados, nomenclatura consistente e estrutura organizada
+
+✅ **Tratamento de Erros:** Sistema robusto que não quebra com entradas inválidas
+
+✅ **Responsividade:** Funciona bem em desktop, tablet e mobile
+
+✅ **Funcionalidades Completas:** CRUD completo com todas as operações funcionando
+
+### 4.5 Pontos de Melhoria e Trabalhos Futuros
+
+#### 🔄 Melhorias Técnicas Desejadas:
+
+**1. Autenticação e Autorização**
+- Implementar sistema de login/logout
+- Diferentes níveis de permissão (admin, funcionário, cliente)
+- Sessões seguras com JWT
+
+**2. Validação Mais Robusta**
+- Validação mais rigorosa no backend com bibliotecas como Joi
+- Mensagens de erro mais específicas
+- Validação em tempo real no frontend
+
+**3. Performance**
+- Implementar cache para consultas frequentes
+- Paginação para listas grandes
+- Lazy loading de imagens
+
+**4. Testes Automatizados**
+- Testes unitários para models e controllers
+- Testes de integração para APIs
+- Testes end-to-end para fluxos completos
+
+#### 🚀 Funcionalidades Futuras:
+
+**1. Sistema de Reservas Completo**
+- Calendário de disponibilidade
+- Sistema de pagamentos online
+- Confirmação por email
+
+**2. Dashboard Analytics**
+- Relatórios de ocupação
+- Gráficos de receita
+- Estatísticas de uso
+
+**3. API Pública**
+- Documentação com Swagger
+- Rate limiting
+- Versionamento de API
+
+**4. Interface Aprimorada**
+- Upload de imagens para quartos
+- Tema escuro/claro
+- Animações e transições
+
+### 4.6 Conclusões Finais
+
+Este projeto foi fundamental para consolidar conhecimentos em desenvolvimento web full-stack. A experiência de construir uma aplicação completa, desde o banco de dados até a interface do usuário, proporcionou uma visão abrangente do processo de desenvolvimento.
+
+Os principais ganhos foram:
+- **Domínio da arquitetura MVC**
+- **Experiência prática com APIs REST**
+- **Desenvolvimento de interfaces responsivas**
+- **Integração frontend-backend**
+- **Boas práticas de organização de código**
+
+O projeto atende completamente aos requisitos propostos e serve como uma base sólida para futuras expansões e melhorias.
 
 
 
