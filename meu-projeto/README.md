@@ -1,92 +1,200 @@
-# Sistema de Gestão Hoteleira
+# 🏨 Sistema de Gestão Hoteleira
 
-Este é um sistema de gestão hoteleira desenvolvido como projeto acadêmico. A aplicação permite gerenciar quartos, reservas, usuários, pagamentos e avaliações.
+Sistema completo de gestão hoteleira desenvolvido como projeto acadêmico utilizando arquitetura MVC. A aplicação permite gerenciar quartos, reservas, usuários, pagamentos e avaliações de forma intuitiva e eficiente.
 
-## Tecnologias Utilizadas
+![Sistema de Hotel](../assets/screenshot-home.png)
 
-- Node.js
-- Express.js
-- PostgreSQL
-- EJS (Embedded JavaScript templates)
-- HTML, CSS e JavaScript
-- Fetch API para consumo de endpoints
+## 🚀 Funcionalidades Principais
 
-## Funcionalidades
+### ✨ Gestão de Quartos
+- ✅ Listagem completa de quartos disponíveis
+- ✅ Cadastro de novos quartos com validação
+- ✅ Edição de informações existentes
+- ✅ Exclusão com confirmação de segurança
+- ✅ Visualização em cards e tabelas
 
-- Listagem, cadastro, edição e exclusão de quartos
-- Visualização detalhada de informações de quartos
-- Interface responsiva e amigável
+### 🎯 Interface e Experiência
+- ✅ Design responsivo para desktop e mobile
+- ✅ Navegação intuitiva entre páginas
+- ✅ Feedback visual para todas as ações
+- ✅ Tratamento adequado de erros
+- ✅ Confirmações para ações críticas
 
-## Requisitos para Execução
+### 🛠 Arquitetura Técnica
+- ✅ Padrão MVC (Model-View-Controller)
+- ✅ API REST para operações CRUD
+- ✅ Comunicação assíncrona com Fetch API
+- ✅ Templates dinâmicos com EJS
+- ✅ Banco de dados PostgreSQL
 
-- Node.js (versão 14.x ou superior)
-- PostgreSQL (versão 12.x ou superior)
-- Git
+## 🔧 Tecnologias Utilizadas
 
-## Instalação e Execução
+### Backend
+- **Node.js** - Runtime JavaScript
+- **Express.js** - Framework web
+- **PostgreSQL** - Banco de dados relacional
+- **pg** - Driver PostgreSQL para Node.js
+- **dotenv** - Gerenciamento de variáveis de ambiente
 
-### 1. Clone o repositório
+### Frontend
+- **EJS** - Template engine para renderização dinâmica
+- **HTML5** - Estruturação das páginas
+- **CSS3** - Estilização e responsividade
+- **JavaScript ES6+** - Interatividade e consumo de APIs
+- **Fetch API** - Comunicação com backend
 
+## 📋 Pré-requisitos
+
+Antes de executar o projeto, certifique-se de ter instalado:
+
+- **Node.js** (versão 16.x ou superior) - [Download aqui](https://nodejs.org/)
+- **PostgreSQL** (versão 12.x ou superior) - [Download aqui](https://www.postgresql.org/download/)
+- **Git** - [Download aqui](https://git-scm.com/)
+
+## 🚀 Como Executar o Projeto
+
+### 1️⃣ Clone o repositório
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/seu-usuario/sistema-gestao-hoteleira.git
+cd sistema-gestao-hoteleira/meu-projeto
 ```
 
-### 2. Instale as dependências
-
+### 2️⃣ Instale as dependências
 ```bash
 npm install
 ```
 
-### 3. Configure o banco de dados
+### 3️⃣ Configure o banco de dados
 
-- Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+Crie um arquivo `.env` na raiz do projeto com as seguintes configurações:
 
-```
+```env
+# Configurações do Banco de dados
 DB_HOST=localhost
 DB_PORT=5432
-DB_USER=seu_usuario
-DB_PASSWORD=sua_senha
-DB_DATABASE=nome_do_banco
+DB_USER=postgres
+DB_PASSWORD=sua_senha_aqui
+DB_DATABASE=hotel
 DB_SSL=FALSE
+
+# Porta do servidor
+PORT=3000
 ```
 
-- Execute o script de inicialização do banco de dados:
-
+### 4️⃣ Inicialize o banco de dados
 ```bash
+# Este comando criará o banco de dados e as tabelas necessárias
 node scripts/init-db.js
 ```
 
-### 4. Inicie o servidor
-
+### 5️⃣ Execute o servidor
 ```bash
 npm start
 ```
 
-O servidor estará disponível em `http://localhost:3000`
+### 6️⃣ Acesse a aplicação
+Abra seu navegador e acesse: `http://localhost:3000`
 
-## Estrutura do Projeto
+## 📱 Demonstração Visual
 
-- `controllers/`: Controladores para gerenciar as requisições
-- `models/`: Modelos para interação com o banco de dados
-- `views/`: Templates EJS para renderização de páginas
-- `public/`: Arquivos estáticos (CSS, JavaScript, imagens)
-- `routes/`: Rotas da aplicação
-- `scripts/`: Scripts de inicialização
-- `config/`: Configurações da aplicação
+### Página Inicial
+![Página Inicial](../assets/screenshot-home.png)
+*Interface principal com listagem de quartos em formato de cards*
 
-## Endpoints da API
+### Lista de Quartos
+![Lista de Quartos](../assets/screenshot-lista.png)
+*Visualização em tabela com opções de edição e exclusão*
 
-A API pode ser consumida através dos seguintes endpoints:
+### Formulário de Quartos
+![Formulário](../assets/screenshot-formulario.png)
+*Interface para cadastro e edição de quartos com validação*
 
-- `GET /api/quartos`: Lista todos os quartos
-- `GET /api/quartos/:id`: Busca um quarto pelo ID
-- `POST /api/quartos`: Cria um novo quarto
-- `PUT /api/quartos/:id`: Atualiza um quarto existente
-- `DELETE /api/quartos/:id`: Remove um quarto
+## 🎥 Vídeo Demonstrativo
 
-Outros endpoints seguem o mesmo padrão para as demais entidades (usuários, reservas, etc.).
+🔗 **[Assistir Demonstração Completa](link-do-video-aqui)**
+- Apresentação do sistema funcionando
+- Demonstração das principais funcionalidades
+- Explicação da arquitetura técnica
 
-## Autor
+## 🏗 Estrutura do Projeto
 
-Nome do Autor - Projeto desenvolvido para a disciplina de Programação - 2025
+```
+meu-projeto/
+├── app.js                 # Arquivo principal da aplicação
+├── package.json           # Dependências e scripts
+├── .env                   # Variáveis de ambiente (criar)
+├── config/
+│   └── database.js        # Configuração do banco de dados
+├── controllers/           # Lógica de negócio (MVC)
+│   ├── quartosControllers.js
+│   ├── usuariosController.js
+│   └── ...
+├── models/                # Interação com banco de dados
+│   ├── quartosModel.js
+│   ├── usuariosModel.js
+│   └── ...
+├── views/                 # Templates EJS
+│   ├── index.ejs
+│   ├── partials/
+│   └── quartos/
+├── routes/                # Definição de rotas
+│   └── index.js
+├── public/                # Arquivos estáticos
+│   ├── css/
+│   ├── js/
+│   └── img/
+└── scripts/               # Scripts de inicialização
+    ├── init-db.js
+    └── init.sql
+```
+
+## 🌐 Endpoints da API
+
+A aplicação fornece uma API REST completa para integração:
+
+### 🏨 Quartos
+- `GET /api/quartos` - Lista todos os quartos
+- `GET /api/quartos/:id` - Busca quarto específico
+- `POST /api/quartos` - Cria novo quarto
+- `PUT /api/quartos/:id` - Atualiza quarto existente
+- `DELETE /api/quartos/:id` - Remove quarto
+
+### 👤 Usuários
+- `GET /api/usuarios` - Lista todos os usuários
+- `POST /api/usuarios` - Cria novo usuário
+- `PUT /api/usuarios/:id` - Atualiza usuário
+- `DELETE /api/usuarios/:id` - Remove usuário
+
+### 📅 Reservas
+- `GET /api/reservas` - Lista todas as reservas
+- `POST /api/reservas` - Cria nova reserva
+- `PUT /api/reservas/:id` - Atualiza reserva
+- `DELETE /api/reservas/:id` - Cancela reserva
+
+## 🤝 Contribuindo
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/MinhaFeature`)
+3. Commit suas mudanças (`git commit -m 'Adiciona MinhaFeature'`)
+4. Push para a branch (`git push origin feature/MinhaFeature`)
+5. Abra um Pull Request
+
+## 📄 Licença
+
+Este projeto é desenvolvido para fins acadêmicos como parte do curso de Engenharia de Computação do Inteli.
+
+## 👨‍💻 Autor
+
+**[Seu Nome]** - Estudante de Engenharia de Computação
+- GitHub: [@seu-usuario](https://github.com/seu-usuario)
+- LinkedIn: [Seu Perfil](https://linkedin.com/in/seu-perfil)
+
+## 🙏 Agradecimentos
+
+- Inteli - Instituto de Tecnologia e Liderança
+- Professores e mentores do módulo de programação
+- Colegas de turma pelas discussões e feedback
+
+---
+
+**⭐ Se este projeto foi útil para você, considere dar uma estrela no repositório!**
