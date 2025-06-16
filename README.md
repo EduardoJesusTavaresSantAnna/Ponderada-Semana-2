@@ -37,7 +37,7 @@ Este repositório contém o desenvolvimento completo de um sistema de gestão ho
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/sistema-gestao-hoteleira.git
+git clone https://github.com/EduardoJesusTavaresSantAnna/Ponderada-Semana-2.git
 
 # Navegue para o projeto
 cd sistema-gestao-hoteleira/meu-projeto
@@ -110,10 +110,9 @@ npm start
 
 ## 👨‍💻 Autor
 
-**[Seu Nome]**
+**Eduardo Jesus tavares Sant'Anna**
 - Estudante de Engenharia de Computação - Inteli
-- GitHub: [@seu-usuario](https://github.com/seu-usuario)
-- LinkedIn: [Seu Perfil](https://linkedin.com/in/seu-perfil)
+- GitHub: [@Eduardo Jesus Tavares Sant'Anna](https://github.com/EduardoJesusTavaresSantAnna)
 
 ## 📄 Licença
 
