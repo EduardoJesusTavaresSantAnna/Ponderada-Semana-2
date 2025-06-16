@@ -164,6 +164,7 @@ Este projeto é desenvolvido para fins acadêmicos como parte do curso de Engenh
 
 **Eduardo Jesus Tavres Sant'Anna** - Estudante de Engenharia de Computação
 - GitHub: [@Eduardo Jesus Tavares Sant'Anna](https://github.com/EduardoJesusTavaresSantAnna)
+- Vídeo explicativo: [Vídeo explicativo](https://drive.google.com/file/d/1O-9g1fuKcI9YRQv-7-gpGLpzROtxXNzY/view?usp=sharing)
 
 ## 🙏 Agradecimentos
 
