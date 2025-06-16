@@ -112,21 +112,6 @@ Banco de Dados: PostgreSQL com SQL puro
 - **Model**: A camada que lida com a lógica de negócios e interage com o banco de dados.
 - **View**: A camada responsável pela interface de usuário.
 - **Controller**: A camada que recebe as requisições, processa as ações e atualiza o modelo e a visualização.
-  
-*Adicione as setas e explicações sobre como os dados fluem entre o Model, Controller e View.*
-
-### 3.3. Wireframes (Semana 03 - opcional)
-
-*Posicione aqui as imagens do wireframe construído para sua solução e, opcionalmente, o link para acesso (mantenha o link sempre público para visualização).*
-
-### 3.4. Guia de estilos (Semana 05 - opcional)
-
-*Descreva aqui orientações gerais para o leitor sobre como utilizar os componentes do guia de estilos de sua solução.*
-
-
-### 3.5. Protótipo de alta fidelidade (Semana 05 - opcional)
-
-*Posicione aqui algumas imagens demonstrativas de seu protótipo de alta fidelidade e o link para acesso ao protótipo completo (mantenha o link sempre público para visualização).*
 
 ### 3.6. WebAPI e endpoints (Semana 05)
 
@@ -217,16 +202,13 @@ O sistema inclui diversos elementos de interface para facilitar a navegação e 
 #### 3.7.3 Capturas de Tela
 
 **Página Inicial**
-![Página Inicial](../assets/screenshot-home.png)
-*Observação: Substitua com a imagem real da sua página inicial*
+![Página Inicial](telaHome-1.png)
 
 **Lista de Quartos**
-![Lista de Quartos](../assets/screenshot-lista.png)
-*Observação: Substitua com a imagem real da sua lista de quartos*
+![Lista de Quartos](quartoTela.png)
 
 **Formulário de Criação/Edição de Quarto**
-![Formulário de Quarto](../assets/screenshot-formulario.png)
-*Observação: Substitua com a imagem real do seu formulário*
+![Formulário de Quarto](formlarioTela.png)
 
 #### 3.7.4 Recursos de Interface Implementados
 
@@ -409,14 +391,3 @@ Os principais ganhos foram:
 - **Desenvolvimento de interfaces responsivas**
 - **Integração frontend-backend**
 - **Boas práticas de organização de código**
-
-O projeto atende completamente aos requisitos propostos e serve como uma base sólida para futuras expansões e melhorias.
-
-
-
-## <a name="c5"></a>5. Referências
-
-_Incluir as principais referências de seu projeto, para que o leitor possa consultar caso ele se interessar em aprofundar._<br>
-
----
----
